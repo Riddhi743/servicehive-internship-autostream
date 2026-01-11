@@ -4,7 +4,7 @@ def detect_intent(text):
     if text.startswith(("hi", "hello", "hey")):
         return "greeting"
 
-    if "price" in text or "plan" in text or "cost" in text:
+    if any(word in text for word in ["price", "plan", "cost", "refund", "refunds", "support"]):
         return "product_query"
 
     if any(p in text for p in ["i want", "i'd like", "sign me up", "i will try"]):
